@@ -1,68 +1,47 @@
-import 'dart:math';
+class Hewan {
+  String kaki;
+  String makanan;
+  String habitat;
+  String nama;
+  String suara;
+
+  Hewan({
+    required this.kaki,
+    required this.makanan,
+    required this.habitat,
+    required this.nama,
+    required this.suara,
+  }); 
+}
+
+class HewanAction extends Hewan {
+
+  HewanAction({
+    required String kaki,
+    required String makanan,
+    required String habitat,
+    required String nama,
+    required String suara,
+  }): super(habitat: habitat,makanan: makanan,kaki: kaki,suara: suara, nama: nama);
+
+  void tulis(kaki, makanan, habitat,  nama) {
+    print("Ini Adalah $nama");
+    print("$nama Memiliki kaki $kaki");
+    print("$nama Memiliki makanan $makanan");
+    print("$nama Memiliki habitat $habitat");
+  }
+  void bersuara(suara) {
+    print("rendi Bersuara dengan $suara");
+  }
+}
 
 void main() {
-  BurungAction walet = BurungAction(
-    gerak: "terbang",
-    suara: "kiw kiw",
-    makanan: "biji bijian",
-  );
+  HewanAction rendi = HewanAction(
+    kaki: "4", makanan: "titid edi", 
+    habitat: "gudang beras", 
+    nama: "rendi", 
+    suara: "kontolllll lupa retri");
 
-  Aksi aksi = Aksi();
-
-  aksi.main("walet", walet.gerak, walet.makanan);
-  walet.berkicau();
-  print("Kelamin walet: ${walet.kelamin}");
-}
-
-class Burung {
-  String gerak;
-  String suara;
-  String makanan;
-
-  Burung({
-    required this.gerak,
-    required this.suara,
-    required this.makanan,
-  });
-}
-
-class BurungAction extends Burung {
-  late final String kelamin;
-
-  BurungAction({
-    required String gerak,
-    required String suara,
-    required String makanan,
-  }) : super(gerak: gerak, suara: suara, makanan: makanan) {
-    KelaminRandom _kelaminRandom = KelaminRandom();
-    kelamin = _kelaminRandom.randomKelamin();
-  }
-
-  void berkicau() {
-    for (var v = 0; v < 3; v++) {
-      print("Berkicau: $suara");
-    }
-  }
-}
-
-class KelaminRandom {
-  String? kelamin;
-
-  String randomKelamin() {
-    var random = Random();
-    kelamin = random.nextBool() ? "Laki-laki" : "Perempuan";
-    return kelamin!;
-  }
-}
-
-class Aksi {
-  void main(
-    String nama_burung,
-    String gerak,
-    String makanan,
-  ) {
-    print("nama_burung: " + nama_burung);
-    print("gerak: " + gerak);
-    print("makanan: " + makanan);
-  }
+  rendi.tulis(rendi.kaki, rendi.makanan, rendi.habitat, rendi.nama);
+  rendi.bersuara(rendi.suara);
 }
