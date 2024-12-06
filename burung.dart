@@ -1,4 +1,6 @@
 
+import 'dart:math';
+
 void main(){
   Burung_berkicau walet = Burung_berkicau(
     gerak: "terbang",suara: "kiw kiw", makanan: "biji bijian"
@@ -32,5 +34,15 @@ class Burung_berkicau extends Burung {
     for (var v = 0; v < 5; v++) {
       print("Berkicau: $suara");
     }
+  }
+}
+
+class KelaminRandom {
+  String? kelamin;
+
+  String randomKelamin() {
+    var random = Random();
+    kelamin = random.nextBool() ? "Laki-laki" : "Perempuan";
+    return kelamin!;
   }
 }
