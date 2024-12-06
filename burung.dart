@@ -2,8 +2,8 @@ import 'dart:math';
 
 void main() {
   BurungAction walet = BurungAction(
-    gerak: "terbang",
-    suara: "kiw kiw",
+    gerak: "Renang",
+    suara: "Hidup Papa Brayen",
     makanan: "biji bijian",
   );
 
