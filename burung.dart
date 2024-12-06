@@ -1,7 +1,7 @@
 import 'dart:math';
 
 void main() {
-  BurungBerkicau walet = BurungBerkicau(
+  BurungAction walet = BurungAction(
     gerak: "terbang",
     suara: "kiw kiw",
     makanan: "biji bijian",
@@ -23,10 +23,10 @@ class Burung {
   });
 }
 
-class BurungBerkicau extends Burung {
+class BurungAction extends Burung {
   late final String kelamin;
 
-  BurungBerkicau({
+  BurungAction({
     required String gerak,
     required String suara,
     required String makanan,
