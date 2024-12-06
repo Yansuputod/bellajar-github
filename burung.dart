@@ -4,6 +4,9 @@ void main(){
     gerak: "terbang",suara: "kiw kiw", makanan: "biji bijian"
   );
 
+  Aksi aksi = Aksi();
+
+  aksi.main("walet", walet.gerak, walet.makanan);
   walet.berkicau();
 }
 
@@ -32,5 +35,17 @@ class Burung_berkicau extends Burung {
     for (var v = 0; v < 5; v++) {
       print("Berkicau: $suara");
     }
+  }
+}
+
+class Aksi{
+  void main(
+    String nama_burung,
+    String gerak,
+    String makanan){
+
+      print("nama_burung: "+ nama_burung);
+      print("gerak: "+ gerak);
+      print("makanan: "+ makanan);
   }
 }
