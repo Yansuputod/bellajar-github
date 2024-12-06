@@ -1,16 +1,17 @@
-
 import 'dart:math';
 
-void main(){
-  Burung_berkicau walet = Burung_berkicau(
-    gerak: "terbang",suara: "kiw kiw", makanan: "biji bijian"
+void main() {
+  BurungBerkicau walet = BurungBerkicau(
+    gerak: "terbang",
+    suara: "kiw kiw",
+    makanan: "biji bijian",
   );
 
   walet.berkicau();
+  print("Kelamin walet: ${walet.kelamin}");
 }
 
-class Burung{
-
+class Burung {
   String gerak;
   String suara;
   String makanan;
@@ -20,18 +21,22 @@ class Burung{
     required this.suara,
     required this.makanan,
   });
-
 }
 
-class Burung_berkicau extends Burung {
-  Burung_berkicau({
+class BurungBerkicau extends Burung {
+  late final String kelamin;
+
+  BurungBerkicau({
     required String gerak,
     required String suara,
     required String makanan,
-  }) : super(gerak: gerak, suara: suara, makanan: makanan);
+  }) : super(gerak: gerak, suara: suara, makanan: makanan) {
+    KelaminRandom _kelaminRandom = KelaminRandom();
+    kelamin = _kelaminRandom.randomKelamin();
+  }
 
   void berkicau() {
-    for (var v = 0; v < 5; v++) {
+    for (var v = 0; v < 3; v++) {
       print("Berkicau: $suara");
     }
   }
