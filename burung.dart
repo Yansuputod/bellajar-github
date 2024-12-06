@@ -1,17 +1,20 @@
+import 'dart:math';
 
-void main(){
-  Burung_berkicau walet = Burung_berkicau(
-    gerak: "terbang",suara: "kiw kiw", makanan: "biji bijian"
+void main() {
+  BurungAction walet = BurungAction(
+    gerak: "terbang",
+    suara: "kiw kiw",
+    makanan: "biji bijian",
   );
 
   Aksi aksi = Aksi();
 
   aksi.main("walet", walet.gerak, walet.makanan);
   walet.berkicau();
+  print("Kelamin walet: ${walet.kelamin}");
 }
 
-class Burung{
-
+class Burung {
   String gerak;
   String suara;
   String makanan;
@@ -21,31 +24,45 @@ class Burung{
     required this.suara,
     required this.makanan,
   });
-
 }
 
-class Burung_berkicau extends Burung {
-  Burung_berkicau({
+class BurungAction extends Burung {
+  late final String kelamin;
+
+  BurungAction({
     required String gerak,
     required String suara,
     required String makanan,
-  }) : super(gerak: gerak, suara: suara, makanan: makanan);
+  }) : super(gerak: gerak, suara: suara, makanan: makanan) {
+    KelaminRandom _kelaminRandom = KelaminRandom();
+    kelamin = _kelaminRandom.randomKelamin();
+  }
 
   void berkicau() {
-    for (var v = 0; v < 5; v++) {
+    for (var v = 0; v < 3; v++) {
       print("Berkicau: $suara");
     }
   }
 }
 
-class Aksi{
+class KelaminRandom {
+  String? kelamin;
+
+  String randomKelamin() {
+    var random = Random();
+    kelamin = random.nextBool() ? "Laki-laki" : "Perempuan";
+    return kelamin!;
+  }
+}
+
+class Aksi {
   void main(
     String nama_burung,
     String gerak,
-    String makanan){
-
-      print("nama_burung: "+ nama_burung);
-      print("gerak: "+ gerak);
-      print("makanan: "+ makanan);
+    String makanan,
+  ) {
+    print("nama_burung: " + nama_burung);
+    print("gerak: " + gerak);
+    print("makanan: " + makanan);
   }
 }
