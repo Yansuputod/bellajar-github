@@ -7,6 +7,9 @@ void main() {
     makanan: "biji bijian",
   );
 
+  Aksi aksi = Aksi();
+
+  aksi.main("walet", walet.gerak, walet.makanan);
   walet.berkicau();
   print("Kelamin walet: ${walet.kelamin}");
 }
@@ -49,5 +52,17 @@ class KelaminRandom {
     var random = Random();
     kelamin = random.nextBool() ? "Laki-laki" : "Perempuan";
     return kelamin!;
+  }
+}
+
+class Aksi {
+  void main(
+    String nama_burung,
+    String gerak,
+    String makanan,
+  ) {
+    print("nama_burung: " + nama_burung);
+    print("gerak: " + gerak);
+    print("makanan: " + makanan);
   }
 }
